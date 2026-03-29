@@ -61,3 +61,9 @@ python -m app.main
 - Promo-коды
 - Push/бот-уведомления
 - Расширенные фильтры и сортировки
+
+
+## Частые проблемы
+- `ModuleNotFoundError: No module named 'app'` при `alembic upgrade head` внутри контейнера:
+  - обновите контейнер backend после pull: `docker compose up -d --build backend`
+  - затем повторите миграцию: `docker compose exec backend alembic upgrade head`
